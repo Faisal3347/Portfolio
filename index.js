@@ -1,0 +1,32 @@
+$(document).ready(function()
+{
+    $('#menu').click(function()
+    {
+        $(this).toggleClass('fa-time');
+        $('header').toggleClass('toggle');
+    });
+    $('window').on('scroll load',function()
+    {
+        $('#menu').removeClass('fa-time');
+        $('header').removeClass('toggle');
+
+        //for makin upward arrow
+        if($(window).scrollTop() > 0){
+            $('.to-top').show();
+
+        }else{
+            $('.to-top').hide();
+        }
+    });
+//smooth scroll
+ $('a[href*="#"]').click(function(e){
+    e.preventDefault();
+    $('html , body').animate({
+        scrollTop : $($(this).attr('href')).offset().top,
+    },
+    500,
+    'linear'
+    );
+ });
+
+});
